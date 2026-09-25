@@ -1,8 +1,10 @@
-import React from 'react';
-import { ArrowRight, Download } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowRight, Download, Eye, X } from 'lucide-react';
 import GradientWaves from './GradientWaves';
 
 export default function Hero() {
+  const [showPdf, setShowPdf] = useState(false);
+
   return (
     <section id="beranda" className="relative pt-28 pb-20 lg:pt-36 lg:pb-32 bg-transparent overflow-hidden">
       <style>{`
@@ -62,13 +64,13 @@ export default function Hero() {
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
 
-              <a
-                href="#kontak"
+              <button
+                onClick={() => setShowPdf(true)}
                 className="inline-flex items-center px-7 py-3.5 rounded-full bg-transparent text-[#042C94] font-semibold text-base border border-[#042C94] shadow-xs hover:bg-[#042C94] hover:text-white transition-colors group"
               >
-                Unduh Company Profile
-                <Download className="w-5 h-5 ml-2 group-hover:translate-y-0.5 transition-transform" />
-              </a>
+                Lihat Proposal
+                <Eye className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform" />
+              </button>
             </div>
           </div>
 
@@ -78,6 +80,43 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      {/* PDF Modal */}
+      {showPdf && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 sm:p-8">
+          <div className="relative w-full max-w-5xl h-[90vh] bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col">
+            {/* Modal Header */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 bg-white">
+              <h3 className="text-xl font-bold text-[#042C94]">Proposal Penawaran Labstech</h3>
+              <div className="flex items-center gap-3">
+                <a
+                  href="/Proposal Labstech.pdf"
+                  download="Proposal Penawaran Labstech.pdf"
+                  className="inline-flex items-center px-4 py-2 bg-[#042C94] text-white text-sm font-semibold rounded-lg hover:bg-[#101B3D] transition-colors"
+                >
+                  <Download className="w-4 h-4 mr-2" />
+                  Unduh PDF
+                </a>
+                <button
+                  onClick={() => setShowPdf(false)}
+                  className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full transition-colors"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+            </div>
+
+            {/* PDF Viewer */}
+            <div className="flex-1 w-full bg-gray-100">
+              <iframe
+                src="/Proposal Labstech.pdf#toolbar=0"
+                className="w-full h-full border-none"
+                title="Proposal Labstech"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

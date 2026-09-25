@@ -175,15 +175,15 @@ export const processSteps = [
 ];
 
 export const contactInfo = {
-  email: "info@labstech.id",
-  phone: "+62 21 8900 1234",
+  email: "labstechkaryanusantara@gmail.com",
+  phone: "+62 895 4035 89569",
   location: "Semarang, Jawa Tengah",
   socials: [
-    { name: "GitHub", icon: "Github", url: "https://github.com" },
+    { name: "GitHub", icon: "Github", url: "https://github.com/AndhikaRizky04" },
     { name: "LinkedIn", icon: "Linkedin", url: "https://linkedin.com" },
     { name: "X", icon: "Twitter", url: "https://x.com" },
-    { name: "Email", icon: "Mail", url: "mailto:info@labstech.id" },
+    { name: "Email", icon: "Mail", url: "mailto:labstechkaryanusantara@gmail.com" },
     { name: "Instagram", icon: "Instagram", url: "https://instagram.com" },
-    { name: "TikTok", icon: "Video", url: "https://tiktok.com" }
+    { name: "TikTok", icon: "Video", url: "https://tiktok.com/@labstech_mediaa" }
   ]
 };

@@ -52,7 +52,9 @@ export default function Process() {
         {/* 10-Step Horizontal Timeline */}
         <div className="relative pt-6 pb-12 overflow-x-auto no-scrollbar">
           {/* Connecting Line background */}
-          <div className="hidden lg:block absolute top-[54px] left-12 right-12 h-1 bg-[#042C94]/20 z-0" />
+          <div className="absolute top-[54px] left-12 right-12 h-1 bg-[#042C94]/20 z-0 hidden lg:block" />
+          {/* Mobile connecting line */}
+          <div className="absolute top-[54px] left-12 right-12 h-1 bg-[#042C94]/20 z-0 block lg:hidden" style={{ minWidth: `${processSteps.length * 16}rem` }} />
 
           <div className="flex space-x-6 lg:space-x-4 min-w-max lg:min-w-0 px-2 lg:px-0">
             {processSteps.map((step) => {
