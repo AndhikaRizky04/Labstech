@@ -48,9 +48,9 @@ export default function ContactCTA() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Left side: Heading & CTA text */}
           <div className="lg:col-span-5 space-y-6">
-            <h2 className="text-4xl sm:text-4xl lg:text-5xl font-extrabold text-[#101B3D] tracking-tight leading-[1.1]">
-              Mari bangun sesuatu<br className="hidden lg:block" />
-              yang berdampak<br className="hidden lg:block" />
+            <h2 className="text-4xl sm:text-4xl lg:text-5xl font-extrabold text-[#101B3D] tracking-tight leading-[1.2]">
+              Mari bangun sesuatu <br className="hidden lg:block" />
+              yang berdampak <br className="hidden lg:block" />
               <span className="text-[#042C94] relative inline-block">
                 bersama.
                 <span className="absolute left-0 -bottom-1 w-full h-[4px] bg-[#042C94]"></span>
@@ -79,7 +79,12 @@ export default function ContactCTA() {
                 <div className="w-10 h-10 rounded-xl bg-[#F8FAFC] text-[#042C94] flex items-center justify-center border border-slate-200 shrink-0 shadow-sm">
                   <Phone className="w-5 h-5" />
                 </div>
-                <a href={`tel:${contactInfo.phone.replace(/[^0-9+]/g, '')}`} className="text-sm font-semibold text-slate-600 hover:text-[#042C94] transition-colors">
+                <a
+                  href={`https://wa.me/${contactInfo.phone.replace(/[^0-9]/g, '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-semibold text-slate-600 hover:text-[#042C94] transition-colors"
+                >
                   {contactInfo.phone}
                 </a>
               </div>
