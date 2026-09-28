@@ -22,13 +22,21 @@ export default function Navbar() {
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const sectionEl = document.getElementById(sections[i]);
-        if (sectionEl && sectionEl.offsetTop <= scrollPosition) {
+        // Pakai getBoundingClientRect (posisi relatif dokumen), bukan offsetTop:
+        // section dibungkus motion.div whileInView yang punya transform, sehingga
+        // offsetParent bukan body dan offsetTop selalu 0.
+        const sectionTop = sectionEl
+          ? sectionEl.getBoundingClientRect().top + window.scrollY
+          : Infinity;
+
+        if (sectionTop <= scrollPosition) {
           setActiveSection(sections[i]);
           break;
         }
       }
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
